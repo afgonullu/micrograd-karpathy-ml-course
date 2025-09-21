@@ -53,3 +53,10 @@ class Value:
 
 			out._backward = _backward
 			return out
+
+		def backward(self):
+			node_topology = build_topological_sort(self)
+			self.grad = 1.0
+
+			for node in reversed(node_topology):
+				node._backward()
