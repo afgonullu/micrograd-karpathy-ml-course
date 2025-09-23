@@ -23,7 +23,7 @@ class Module:
 class Neuron(Module):
 	def __init__(self, nin, method='relu', nonlin=True, layer_idx=0):
 		self.w = [Value(random.uniform(-1, 1), label=f'w{i}_{layer_idx}') for i in range(nin)]
-		self.b = Value(0.0, label='b')
+		self.b = Value(random.uniform(-1, 1), label='b')
 		self.nonlin = nonlin
 		self.method = method
 		# runtime caches for visualization
